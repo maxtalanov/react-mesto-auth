@@ -1,0 +1,10 @@
+.photo-card {
+  display: grid;
+  max-width: 882px;
+
+  grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+  gap: 18px 18px;
+
+  margin: 51px auto 0;
+  padding: 0;
+}

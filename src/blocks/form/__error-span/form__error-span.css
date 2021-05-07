@@ -1,0 +1,23 @@
+.form__error-span {
+  display: block;
+  margin: 5px 0 13px 0;
+  width: 358px;
+  min-height: 12px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+
+  color: #FF0000;
+}
+
+.form__error-span:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .form__error-span {
+    max-width: 238px;
+  }
+}

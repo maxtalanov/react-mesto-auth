@@ -1,0 +1,84 @@
+/* Старт: Фаил REST Vendor и FONTS  */
+@import url(vendor/normalize.css);
+@import url(fonts/fonts.css);
+/* Конец: Фаил REST Vendor и FONTS */
+
+
+@import url(blocks/root/root.css);
+@import url(blocks/page/page.css);
+@import url(blocks/hover-opacity/hover-opacity.css);
+
+
+/* Старт: секция PROFILE */
+@import url(blocks/profile/profile.css);
+@import url(blocks/profile/__img-box/profile__img-box.css);
+@import url(blocks/profile/__avatar/profile__avatar.css);
+@import url(blocks/profile/__info/profile__info.css);
+@import url(blocks/profile/__name/profile__name.css);
+@import url(blocks/profile/__status/profile__status.css);
+@import url(blocks/profile/__edit-button/profile__edit-button.css);
+@import url(blocks/profile/__add-button/profile__add-button.css);
+/* Конец: секция PROFILE */
+
+@import url(blocks/trash/trash.css);
+@import url(blocks/trash/_btn/trash_btn_visible.css);
+@import url(blocks/trash/_btn/trash_btn_hidden.css);
+
+/* Старт: блок FORM */
+@import url(blocks/form/form.css);
+@import url(blocks/form/__delete/form__delete.css); /* Возможное удаление */
+@import url(blocks/form/__title/form__title.css);
+@import url(blocks/form/__set/form__set.css);
+@import url(blocks/form/__input/form__input.css);
+@import url(blocks/form/__input/_state_invalid/form__input_state_invalid.css);
+@import url(blocks/form/__error-span/form__error-span.css);
+@import url(blocks/form/__btn-exit/form__btn-exit.css);
+@import url(blocks/form/__btn-input/form__btn-input.css);
+@import url(blocks/form/__btn-input/state_blocked/form__btn-input_state_blocked.css);
+/* Конец: блок FORM */
+
+/* Старт: секция PHOTO-CARD */
+@import url(blocks/photo-card/photo-card.css);
+
+@import url(blocks/card/card.css);
+@import url(blocks/card/__img/card__img.css);
+@import url(blocks/card/__bottom/card__bottom.css);
+@import url(blocks/card/__text/card__text.css);
+@import url(blocks/card/__title/card__title.css);
+@import url(blocks/card/__like-box/card__like-box.css);
+@import url(blocks/card/__btn-like/card__btn-like.css);
+@import url(blocks/card/__btn-like/__btn-like_active/card__btn-like_active.css);
+@import url(blocks/card/__like-text/card__like-text.css);
+/* Конец: секция PHOTO-CARD */
+
+
+/* Старт: Блок HEADER */
+@import url(blocks/header/header.css);
+@import url(blocks/header/__logo/header__logo.css);
+/* Конец: Блок HEADER */
+
+
+/* место для main */
+@import url(blocks/content/content.css);
+/* Конец: КОНТЕНТ */
+
+
+/* Старт: блок footer */
+@import url(blocks/footer/footer.css);
+@import url(blocks/footer/__copyright/footer__copyright.css);
+/* Конец: блок footer */
+
+
+/* Старт: popup */
+@import url(blocks/popup/popup.css);
+@import url(blocks/popup/__title/popup__title.css);
+@import url(blocks/popup/_opened/popup_opened.css);
+@import url(blocks/popup/_type_img/popup_type_img.css);
+/* Конец: popup */
+
+@import url(blocks/show-img/show-img.css);
+@import url(blocks/show-img/__btn-exit/show-img__btn-exit.css);
+@import url(blocks/show-img/__img/show-img__img.css);
+@import url(blocks/show-img/__text-box/show-img__text-box.css);
+@import url(blocks/show-img/__text/show-img__text.css);
+

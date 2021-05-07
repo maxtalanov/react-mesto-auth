@@ -1,0 +1,31 @@
+.form__btn-input {
+  width: 358px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+
+  color: #FFFFFF;
+  background: #000000;
+
+  border-radius: 2px;
+  border: 0;
+  padding: 17px 0 18px;
+  margin: 29px 36px 37px;
+}
+
+.form__btn-input:hover {
+  background: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  transition: linear 0.4s;
+}
+
+@media screen and (max-width: 767px) {
+  .form__btn-input {
+    max-width: 238px;
+    margin: 45px 22px 25px;
+    padding: 14px 0;
+  }
+}

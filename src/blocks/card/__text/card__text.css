@@ -1,0 +1,9 @@
+.card__text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  max-width: 100%;
+
+  margin: 22px 15px 22px 21px;
+}

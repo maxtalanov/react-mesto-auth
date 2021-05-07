@@ -1,0 +1,29 @@
+.profile__img-box {
+
+}
+
+.profile__img-box:hover::after {
+  width: 120px;
+  height: 120px;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 50%;
+
+  background-color: rgba(0, 0, 0, 0.8);
+  background-image: url('../../../images/updateAvatar.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+
+  content: '';
+}
+
+@media screen and (max-width: 767px) {
+  .profile__img-box {
+    align-self: center;
+    justify-self: center;
+  }
+}

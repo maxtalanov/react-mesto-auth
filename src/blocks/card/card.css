@@ -1,0 +1,10 @@
+.card {
+  position: relative;
+  min-height: 361px;
+
+  border-radius: 10px;
+  background: #FFFFFF;
+
+  margin: 0;
+  padding: 0;
+}

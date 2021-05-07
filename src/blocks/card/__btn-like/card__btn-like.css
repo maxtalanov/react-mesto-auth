@@ -1,0 +1,9 @@
+.card__btn-like {
+  width: 22px;
+  height: 19px;
+  background: url(../../../images/card__btn-like.svg);
+  background-repeat: no-repeat;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}

@@ -1,0 +1,13 @@
+.form__btn-input_state_blocked {
+  background-color: #FFFFFF;
+  color: #000000;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+  opacity: 0.2;
+}
+
+.form__btn-input_state_blocked:hover {
+  background-color: rgba(255, 255, 255, 0);
+}

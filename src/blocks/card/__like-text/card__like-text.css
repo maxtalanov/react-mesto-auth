@@ -1,0 +1,13 @@
+.card__like-text {
+  color: #000000;
+
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+
+  margin: 0 6px;
+  padding: 0;
+}
