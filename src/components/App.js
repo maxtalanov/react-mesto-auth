@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import Header from '../components/Header';
 import Main from '../components/Main';
@@ -156,6 +156,14 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
         <Header />
+        <Switch>
+          <Route path="/sign-in">
+            <h2>Вход</h2>
+          </Route>
+          <Route path="/sign-up">
+            <h2>Регистрация</h2>
+          </Route>
+        </Switch>
           <Main
             profileEditOnClick={handleEditProfileClick}
             addPlacrOnClick={handleAddPlaceClick}
