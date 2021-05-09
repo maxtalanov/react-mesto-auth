@@ -5,7 +5,7 @@ function ImagePopup(props) {
   //console.log(props, 'Компонен: POPUP IMG');
 
 
-  const classOpen = props.card? 'popup_opened':''
+  const classOpen = props.card? 'popup_opened' : '';
 
   return (
     <section className={`popup popup_type_img ${classOpen}`}>

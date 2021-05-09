@@ -10,6 +10,9 @@ import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
 import api from '../utils/api';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
+import Login from "./Login";
+import Register from "./Register";
+import InfoTooltip from "./InfoTooltip";
 
 function App() {
   //console.log(props, 'Компонент APP');
@@ -155,15 +158,18 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
         <Header />
-          <Main
-            profileEditOnClick={handleEditProfileClick}
-            addPlacrOnClick={handleAddPlaceClick}
-            avatarEditOnClick={handleEditAvatarClick}
-            onCardClick={handleCardClick}
-            cards={cards}
-            onCardLike={handleCardLike}
-            onCardDelete={handleCardDelete}
-          />
+        {/*  <Main*/}
+        {/*    profileEditOnClick={handleEditProfileClick}*/}
+        {/*    addPlacrOnClick={handleAddPlaceClick}*/}
+        {/*    avatarEditOnClick={handleEditAvatarClick}*/}
+        {/*    onCardClick={handleCardClick}*/}
+        {/*    cards={cards}*/}
+        {/*    onCardLike={handleCardLike}*/}
+        {/*    onCardDelete={handleCardDelete}*/}
+        {/*  />*/}
+
+       <Login />
+        <Register />
 
         <Footer />
 
@@ -173,7 +179,7 @@ function App() {
 
         <PopupWithForm name="delete" title="Вы уверены?" inputBtnSelector="create" inpitValue="Да">
         </PopupWithForm>
-
+        <InfoTooltip />
         <ImagePopup
           card={selectedCard}
           cardData={dataImg}
