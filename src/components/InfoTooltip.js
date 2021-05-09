@@ -5,7 +5,7 @@ function InfoTooltip() {
 
 
   return(
-    <section className={`popup popup_type_infoRegister popup_opened`}>
+    <section className={`popup popup_type_infoRegister`}> //popup_opened
       <form className="form">
         <img className="form__result-icon" src={successful} alt="Тест"/>
         <h2 className="form__result-title">Вы успешно зарегистрировались!</h2>
