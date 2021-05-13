@@ -1,7 +1,7 @@
 import React from "react";
 import AuthWithForm from "./AuthWithForm";
 
-function Login() {
+function Login(props) {
   return(
       <AuthWithForm
         title="Войти"

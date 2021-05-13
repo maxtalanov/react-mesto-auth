@@ -1,11 +1,22 @@
 import React from 'react';
-
+import { Link } from "react-router-dom";
 import logoHeader from '../images/logo__header.svg';
 
-function Header() {
+function Header({ linkTitle, path }) {
   return (
     <header className="header">
-      <img className="header__logo" src={logoHeader} alt="Логотип" />
+      <ul className="navbar">
+        <li className="navbar__string">
+          <Link className="navbar__string-link hover-opacity" to="/">
+            <img className="header__logo" src={logoHeader} alt="Логотип" />
+          </Link>
+        </li>
+        <li className="navbar__string">
+          <Link className="navbar__string-link" to={path}>
+            <p className="header__link-title hover-opacity">{linkTitle}</p>
+          </Link>
+        </li>
+      </ul>
     </header>
   );
 }

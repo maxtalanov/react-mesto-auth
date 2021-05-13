@@ -158,51 +158,41 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
-        <Header />
         <Switch>
           <Route path="/sign-in">
-            <h2>Вход</h2>
+            <Header linkTitle={"Регистрация"} path={"/sign-up"}/>
+            <Login />
           </Route>
           <Route path="/sign-up">
-            <h2>Регистрация</h2>
+            <Header linkTitle={"Войти"}  path={"/sign-in"}/>
+            <Register />
           </Route>
         </Switch>
-          <Main
-            profileEditOnClick={handleEditProfileClick}
-            addPlacrOnClick={handleAddPlaceClick}
-            avatarEditOnClick={handleEditAvatarClick}
-            onCardClick={handleCardClick}
-            cards={cards}
-            onCardLike={handleCardLike}
-            onCardDelete={handleCardDelete}
-          />
-        {/*  <Main*/}
-        {/*    profileEditOnClick={handleEditProfileClick}*/}
-        {/*    addPlacrOnClick={handleAddPlaceClick}*/}
-        {/*    avatarEditOnClick={handleEditAvatarClick}*/}
-        {/*    onCardClick={handleCardClick}*/}
-        {/*    cards={cards}*/}
-        {/*    onCardLike={handleCardLike}*/}
-        {/*    onCardDelete={handleCardDelete}*/}
-        {/*  />*/}
 
-       <Login />
-        <Register />
+        {/*<Main*/}
+        {/*  profileEditOnClick={handleEditProfileClick}*/}
+        {/*  addPlacrOnClick={handleAddPlaceClick}*/}
+        {/*  avatarEditOnClick={handleEditAvatarClick}*/}
+        {/*  onCardClick={handleCardClick}*/}
+        {/*  cards={cards}*/}
+        {/*  onCardLike={handleCardLike}*/}
+        {/*  onCardDelete={handleCardDelete}*/}
+        {/*/>*/}
 
-        <Footer />
+        {/*<Footer />*/}
 
-        <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser} />
-        <EditAvatarPopup  isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar}/>
-        <AddPlacePopup isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} onAddPlace={handleAddCard}/>
+        {/*<EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser} />*/}
+        {/*<EditAvatarPopup  isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar}/>*/}
+        {/*<AddPlacePopup isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} onAddPlace={handleAddCard}/>*/}
 
-        <PopupWithForm name="delete" title="Вы уверены?" inputBtnSelector="create" inpitValue="Да">
-        </PopupWithForm>
-        <InfoTooltip />
-        <ImagePopup
-          card={selectedCard}
-          cardData={dataImg}
-          onClose={closeAllPopups}
-        />
+        {/*<PopupWithForm name="delete" title="Вы уверены?" inputBtnSelector="create" inpitValue="Да">*/}
+        {/*</PopupWithForm>*/}
+        {/*<InfoTooltip />*/}
+        {/*<ImagePopup*/}
+        {/*  card={selectedCard}*/}
+        {/*  cardData={dataImg}*/}
+        {/*  onClose={closeAllPopups}*/}
+        {/*/>*/}
 
 
       </div>
