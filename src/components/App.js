@@ -1,9 +1,8 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Redirect, Switch, Route, useHistory } from "react-router-dom";
 
 import Header from '../components/Header';
 import Main from '../components/Main';
-import Footer from '../components/Footer';
 import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
 import EditProfilePopup from "./EditProfilePopup";
@@ -14,6 +13,12 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import Login from "./Login";
 import Register from "./Register";
 import InfoTooltip from "./InfoTooltip";
+import ProtectedRoute from "./ProtectedRoute";
+import * as ApiAuth from "../utils/ApiAuth";
+
+import regOk from "../images/successful.svg";
+import regError from "../images/failed.svg";
+
 
 function App() {
   //console.log(props, 'Компонент APP');
@@ -60,6 +65,8 @@ function App() {
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
     setSelectedCard(false)
+    setRegisterError(false);
+    setRegisterOk(false)
   }
 
   function handleCardLike(card) {
@@ -100,17 +107,14 @@ function App() {
 
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true);
-    //document.querySelector('.popup_type_avatar').classList.toggle('popup_opened');
   }
 
   function handleEditProfileClick() {
     setIsEditProfilePopupOpen(true);
-    // document.querySelector('.popup_type_profile').classList.toggle('popup_opened');
   }
 
   function handleAddPlaceClick() {
     setIsAddPlacePopupOpen(true);
-    document.querySelector('.popup_type_card').classList.toggle('popup_opened');
   }
 
   function handleUpdateUser(editDataUser) {
@@ -155,50 +159,149 @@ function App() {
       })
   }
 
+  function closePopupRegisterOk() {
+    closeAllPopups()
+    history.push('sign-in');
+  }
+
+  // #АВТОРИЗИЦИЯ #АВТОРИЗИЦИЯ #АВТОРИЗИЦИЯ #АВТОРИЗИЦИЯ #АВТОРИЗИЦИЯ #АВТОРИЗИЦИЯ
+  const [loggedIn, setLoggedIn] = React.useState(false);
+  const [emailShow, setEmailShow] = React.useState('')
+  const [registerOk, setRegisterOk] = React.useState(false);
+  const [registerError, setRegisterError] = React.useState(false)
+  const history =  useHistory();
+
+  React.useEffect(() => {
+    tokenCheck();
+  }, []);
+
+  React.useEffect(() => {
+    if (loggedIn) {
+      history.push('/profile');
+    }
+  }, [loggedIn]);
+
+  const onLogin = (data) => {
+    // console.log(`Попытка авторизации, log: ${data}`)
+
+    return ApiAuth
+      .authorize(data)
+      .then(({ token }) => {
+        // console.log(`Авторизации пройдена, log: ${token}`);
+
+        localStorage.setItem('jwt', token);
+        setLoggedIn(true);
+        setEmailShow(data.email);
+        history.push('/profile')
+      })
+      .catch((err) => {
+        const linkError = 'https://yandex.ru/support/webmaster/error-dictionary/http-codes.html';
+        console.log('Код ошибки:', err);
+        console.log(`Справочник ошибок ${linkError}`)
+        setEmailShow('');
+      });
+  }
+
+  const onRegister = (data) => {
+    //console.log(`Попытка регистрации, log: ${data}`)
+
+    return ApiAuth
+      .register(data)
+      .then((res) => {
+        //console.log(`Регистрация пройдена, log: ${res}`);
+        setRegisterOk(true);
+      })
+      .catch((err) => {
+        setRegisterError(true);
+
+        const linkError = 'https://yandex.ru/support/webmaster/error-dictionary/http-codes.html';
+
+        console.log('Код ошибки:', err);
+        console.log(`Справочник ошибок ${linkError}`)
+      });
+  }
+
+  const onLogout = () => {
+    setLoggedIn(false);
+    setEmailShow('');
+    localStorage.removeItem('jwt');
+  }
+
+  const tokenCheck = () => {
+
+    const jwt = localStorage.getItem('jwt');
+    if (!jwt) {
+      return;
+    }
+
+    ApiAuth
+      .getContent(jwt)
+      .then((data) => {
+        setEmailShow(data.data.email);
+        setLoggedIn(true);
+      });
+  };
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
         <Switch>
+          <ProtectedRoute
+            profileEditOnClick={handleEditProfileClick}
+            addPlacrOnClick={handleAddPlaceClick}
+            avatarEditOnClick={handleEditAvatarClick}
+            onCardClick={handleCardClick}
+            cards={cards}
+            onCardLike={handleCardLike}
+            onCardDelete={handleCardDelete}
+            component={Main}
+            path={"/profile"}
+            isLoggedIn={loggedIn}
+            onLogout={onLogout}
+            emailShow={emailShow}
+          />
+
           <Route path="/sign-in">
             <Header linkTitle={"Регистрация"} path={"/sign-up"}/>
-            <Login />
+            <Login onLogin={onLogin} />
           </Route>
           <Route path="/sign-up">
             <Header linkTitle={"Войти"}  path={"/sign-in"}/>
-            <Register />
+            <Register onRegister={onRegister} />
+            <InfoTooltip
+              src={regOk}
+              title={'Вы успешно зарегистрировались!'}
+              isOpen={registerOk}
+              onClose={closePopupRegisterOk}
+            />
+            <InfoTooltip
+              src={regError}
+              title={'Что-то пошло не так! Попробуйте ещё раз.'}
+              isOpen={registerError}
+              onClose={closeAllPopups}
+            />
+          </Route>
+
+          <Route exact path="/">
+            {loggedIn ? <Redirect to="/profile"/> : <Redirect to="/sign-in"/>}
           </Route>
         </Switch>
 
-        {/*<Main*/}
-        {/*  profileEditOnClick={handleEditProfileClick}*/}
-        {/*  addPlacrOnClick={handleAddPlaceClick}*/}
-        {/*  avatarEditOnClick={handleEditAvatarClick}*/}
-        {/*  onCardClick={handleCardClick}*/}
-        {/*  cards={cards}*/}
-        {/*  onCardLike={handleCardLike}*/}
-        {/*  onCardDelete={handleCardDelete}*/}
-        {/*/>*/}
+        <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser} />
+        <EditAvatarPopup  isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar}/>
+        <AddPlacePopup isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} onAddPlace={handleAddCard}/>
 
-        {/*<Footer />*/}
+        <PopupWithForm name="delete" title="Вы уверены?" inputBtnSelector="create" inpitValue="Да">
+        </PopupWithForm>
 
-        {/*<EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser} />*/}
-        {/*<EditAvatarPopup  isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar}/>*/}
-        {/*<AddPlacePopup isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} onAddPlace={handleAddCard}/>*/}
-
-        {/*<PopupWithForm name="delete" title="Вы уверены?" inputBtnSelector="create" inpitValue="Да">*/}
-        {/*</PopupWithForm>*/}
-        {/*<InfoTooltip />*/}
-        {/*<ImagePopup*/}
-        {/*  card={selectedCard}*/}
-        {/*  cardData={dataImg}*/}
-        {/*  onClose={closeAllPopups}*/}
-        {/*/>*/}
-
-
+        <ImagePopup
+          card={selectedCard}
+          cardData={dataImg}
+          onClose={closeAllPopups}
+        />
       </div>
     </CurrentUserContext.Provider>
   );
 }
-
 
 export default App;
