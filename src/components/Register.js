@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AuthWithForm from "./AuthWithForm";
+import AuthForm from "./AuthForm";
 import Header from "./Header";
 
 
@@ -34,7 +34,7 @@ function Register({ onRegister }) {
           </Link>
         </li>
       </Header>
-      <AuthWithForm
+      <AuthForm
         title="Регистрация"
         submitName="Зарегистрироваться"
         typeEmail="email"

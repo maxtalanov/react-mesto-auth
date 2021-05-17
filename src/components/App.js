@@ -273,7 +273,7 @@ function App() {
             />
           </Route>
 
-          <Route exact path="/">
+          <Route path="/">
             {loggedIn ? <Redirect to="/profile"/> : <Redirect to="/sign-in"/>}
           </Route>
         </Switch>

@@ -1,5 +1,5 @@
 import React from "react";
-import AuthWithForm from "./AuthWithForm";
+import AuthForm from "./AuthForm";
 import Header from "./Header";
 import {Link} from "react-router-dom";
 
@@ -34,7 +34,7 @@ function Login({ onLogin }) {
         </li>
       </Header>
 
-      <AuthWithForm
+      <AuthForm
         title="Войти"
         submitName="Войти"
         typeEmail="email"

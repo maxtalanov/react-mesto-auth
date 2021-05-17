@@ -1,7 +1,7 @@
 import React from 'react';
 
 //Компонент ф-ый
-function AuthWithForm ({ title, submitName, typeEmail, typePassword, onChange, authData, submit }) {
+function AuthForm ({ title, submitName, typeEmail, typePassword, onChange, authData, submit }) {
 
 
   return(
@@ -23,4 +23,4 @@ function AuthWithForm ({ title, submitName, typeEmail, typePassword, onChange, a
   )
 }
 
-export default AuthWithForm;
+export default AuthForm;
