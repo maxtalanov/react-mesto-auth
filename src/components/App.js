@@ -156,7 +156,7 @@ function App() {
 
   // #АВТОРИЗИЦИЯ #АВТОРИЗИЦИЯ #АВТОРИЗИЦИЯ #АВТОРИЗИЦИЯ #АВТОРИЗИЦИЯ #АВТОРИЗИЦИЯ
   const [loggedIn, setLoggedIn] = React.useState(false);
-  const [emailShow, setEmailShow] = React.useState('')
+  const [email , setEmail] = React.useState('')
   const [registerOk, setRegisterOk] = React.useState(false);
   const [registerError, setRegisterError] = React.useState(false)
   const history =  useHistory();
@@ -181,13 +181,13 @@ function App() {
 
         localStorage.setItem('jwt', token);
         setLoggedIn(true);
-        setEmailShow(data.email);
+        setEmail(data.email);
         history.push('/profile')
       })
       .catch((err) => {
         console.log('Код ошибки:', err);
         console.log(`Справочник ошибок ${directoryHTTP}`)
-        setEmailShow('');
+        setEmail('');
       });
   }
 
@@ -210,7 +210,7 @@ function App() {
 
   const onLogout = () => {
     setLoggedIn(false);
-    setEmailShow('');
+    setEmail('');
     localStorage.removeItem('jwt');
   }
 
@@ -224,7 +224,7 @@ function App() {
     ApiAuth
       .getContent(jwt)
       .then((data) => {
-        setEmailShow(data.data.email);
+        setEmail(data.data.email);
         setLoggedIn(true);
       });
   };
@@ -245,7 +245,7 @@ function App() {
             path={"/profile"}
             isLoggedIn={loggedIn}
             onLogout={onLogout}
-            emailShow={emailShow}
+            emailShow={email}
           />
 
           <Route path="/sign-in">
