@@ -226,6 +226,12 @@ function App() {
       .then((data) => {
         setEmail(data.data.email);
         setLoggedIn(true);
+      })
+      .catch((err) => {
+        setRegisterError(true);
+
+        console.log('Код ошибки:', err);
+        console.log(`Справочник ошибок ${directoryHTTP}`)
       });
   };
 
