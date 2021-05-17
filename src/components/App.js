@@ -15,8 +15,8 @@ import InfoTooltip from "./InfoTooltip";
 import ProtectedRoute from "./ProtectedRoute";
 import * as ApiAuth from "../utils/ApiAuth";
 
-import regOk from "../images/successful.svg";
-import regError from "../images/failed.svg";
+import successIcon from "../images/successful.svg";
+import errorIcon from "../images/failed.svg";
 
 
 function App() {
@@ -266,13 +266,13 @@ function App() {
           <Route path="/sign-up">
             <Register onRegister={onRegister} />
             <InfoTooltip
-              src={regOk}
+              src={successIcon}
               title={'Вы успешно зарегистрировались!'}
               isOpen={registerOk}
               onClose={closePopupRegisterOk}
             />
             <InfoTooltip
-              src={regError}
+              src={errorIcon}
               title={'Что-то пошло не так! Попробуйте ещё раз.'}
               isOpen={registerError}
               onClose={closeAllPopups}
