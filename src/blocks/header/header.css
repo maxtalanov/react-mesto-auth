@@ -1,4 +1,9 @@
 .header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+
   max-width: 882px;
   min-height: 74px;
   padding-top: 45px;
@@ -7,10 +12,10 @@
 }
 
 @media screen and (max-width: 900px) {
-  .header {
+.header {
 
-    min-height: 56px;
-    margin-top: 28px;
-    padding-left: 27px;
-  }
+min-height: 56px;
+margin-top: 28px;
+padding-left: 27px;
+}
 }

@@ -13,16 +13,16 @@ function Main(props) {
   return (
     <>
       <Header linkTitle="" path='/sign-in'>
-        <li className="navbar__string">
-          <p className="header__link-title">{props.emailShow}</p>
+        <li className="navbar__element">
+          <p className="navbar__title">{props.emailShow}</p>
         </li>
-        <li className="navbar__string">
-          <button className="header__link-title hover-opacity" onClick={props.onLogout}>Выход</button>
+        <li className="navbar__element">
+          <button className="navbar__title hover-opacity" onClick={props.onLogout}>Выход</button>
         </li>
       </Header>
       <main className="content">
         <section className="profile">
-          <a className="profile__img-box" onClick={props.avatarEditOnClick}>
+          <a className="profile__img-box" href="#" onClick={props.avatarEditOnClick}>
             <img className="profile__avatar profile__btn-avtar-edit hover-opacity" src={currentUser.avatar} alt="Аватар" />
           </a>
 

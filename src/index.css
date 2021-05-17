@@ -25,8 +25,10 @@
 @import url(blocks/trash/_btn/trash_btn_hidden.css);
 
 @import url(blocks/navbar/navbar.css);
-@import url(blocks/navbar/__string/navbar__string.css);
-@import url(blocks/navbar/__string-link/navbar__string-link.css);
+@import url(blocks/navbar/__element/navbar__element.css);
+@import url(blocks/navbar/__title/navbar__title.css);
+
+@import url(blocks/link/link.css);
 
 /* Старт: блок FORM */
 @import url(blocks/form/form.css);
@@ -60,7 +62,6 @@
 
 /* Старт: Блок HEADER */
 @import url(blocks/header/header.css);
-@import url(blocks/header/__link-title/header__link-title.css);
 @import url(blocks/header/__logo/header__logo.css);
 /* Конец: Блок HEADER */
 

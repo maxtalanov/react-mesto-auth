@@ -1,7 +1,6 @@
 import React from "react";
 import { Redirect, Switch, Route, useHistory } from "react-router-dom";
 
-import Header from '../components/Header';
 import Main from '../components/Main';
 import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
@@ -44,7 +43,7 @@ function App() {
         console.log('Код ошибки:', err); // выведем ошибку в консоль
         console.log(`Проверьте причину в справочнике по адресу: ${linkError}`)
       })
-  }, []);
+  }, [cards]);
 
     //Информация о пользователе
   React.useEffect(() => {
@@ -58,7 +57,7 @@ function App() {
         console.log('Код ошибки:', err); // выведем ошибку в консоль
         console.log(`Проверьте причину в справочнике по адресу: ${linkError}`)
       })
-  },[])
+  },[currentUser])
 
   function closeAllPopups() {
     setIsEditAvatarPopupOpen(false);
@@ -179,7 +178,7 @@ function App() {
     if (loggedIn) {
       history.push('/profile');
     }
-  }, [loggedIn]);
+  }, [history, loggedIn]);
 
   const onLogin = (data) => {
     // console.log(`Попытка авторизации, log: ${data}`)
@@ -262,11 +261,9 @@ function App() {
           />
 
           <Route path="/sign-in">
-            <Header linkTitle={"Регистрация"} path={"/sign-up"}/>
             <Login onLogin={onLogin} />
           </Route>
           <Route path="/sign-up">
-            <Header linkTitle={"Войти"}  path={"/sign-in"}/>
             <Register onRegister={onRegister} />
             <InfoTooltip
               src={regOk}

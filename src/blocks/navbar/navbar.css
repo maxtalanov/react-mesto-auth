@@ -1,8 +1,6 @@
 .navbar {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: flex-end;
 
   list-style-type: none;
   padding: 0;

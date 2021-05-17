@@ -1,5 +1,7 @@
 import React from "react";
 import AuthWithForm from "./AuthWithForm";
+import Header from "./Header";
+import {Link} from "react-router-dom";
 
 function Login({ onLogin }) {
 
@@ -23,6 +25,15 @@ function Login({ onLogin }) {
   }
 
   return(
+    <>
+      <Header>
+        <li className="navbar__element">
+          <Link className="link" to="/sign-up">
+            <p className="navbar__title hover-opacity">Регистрация</p>
+          </Link>
+        </li>
+      </Header>
+
       <AuthWithForm
         title="Войти"
         submitName="Войти"
@@ -32,6 +43,7 @@ function Login({ onLogin }) {
         authData={authData}
         submit={handleSubmit}
       />
+    </>
   )
 }
 

@@ -1,7 +1,6 @@
 .form__set {
   display: flex;
   flex-direction: column;
-  justify-content: start;
 
   /* width: 358px; */
 

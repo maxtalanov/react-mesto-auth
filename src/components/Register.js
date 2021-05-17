@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import AuthWithForm from "./AuthWithForm";
+import Header from "./Header";
 
 
 function Register({ onRegister }) {
@@ -26,6 +27,13 @@ function Register({ onRegister }) {
 
   return(
     <>
+      <Header>
+        <li className="navbar__element">
+          <Link className="link" to="/sign-in">
+            <p className="navbar__title hover-opacity">Войти</p>
+          </Link>
+        </li>
+      </Header>
       <AuthWithForm
         title="Регистрация"
         submitName="Зарегистрироваться"

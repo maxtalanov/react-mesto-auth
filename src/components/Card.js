@@ -7,7 +7,7 @@ function Card(props) {
 
   const currentUser = React.useContext(CurrentUserContext);
   const isOwn = props.ownerId === currentUser._id;
-  const cardDeletBtn = (
+  const cardDeleteBtn = (
     `trash ${isOwn ? 'trash_btn_visible' : 'trash_btn_hidden'}`
   );
   const isLiked = props.likes.some(i => i._id === currentUser._id);
@@ -25,7 +25,7 @@ function Card(props) {
 
   return(
     <figure className="card">
-      <button className={`${cardDeletBtn} hover-opacity`} onClick={removeCard} />
+      <button className={`${cardDeleteBtn} hover-opacity`} onClick={removeCard} />
       <img className="card__img" src={props.src} alt={props.alt}  onClick={clickImg}/>
 
       <figcaption className="card__bottom">
