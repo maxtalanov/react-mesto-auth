@@ -239,7 +239,7 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
         <Switch>
-          <ProtectedRoute
+          <ProtectedRoute exact
             profileEditOnClick={handleEditProfileClick}
             addPlacrOnClick={handleAddPlaceClick}
             avatarEditOnClick={handleEditAvatarClick}
