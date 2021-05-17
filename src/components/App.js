@@ -18,6 +18,8 @@ import * as ApiAuth from "../utils/ApiAuth";
 import successIcon from "../images/successful.svg";
 import errorIcon from "../images/failed.svg";
 
+import { directoryHTTP } from "../utils/constants";
+
 
 function App() {
   //console.log(props, 'Компонент APP');
@@ -38,10 +40,8 @@ function App() {
         setCards(cards);
       })
       .catch((err) => {
-        const linkError = 'https://yandex.ru/support/webmaster/error-dictionary/http-codes.html';
-
         console.log('Код ошибки:', err); // выведем ошибку в консоль
-        console.log(`Проверьте причину в справочнике по адресу: ${linkError}`)
+        console.log(`Проверьте причину в справочнике по адресу: ${directoryHTTP}`)
       })
   }, []);
 
@@ -52,10 +52,8 @@ function App() {
         setCurrentUser(currentUser)
       })
       .catch((err) => {
-        const linkError = 'https://yandex.ru/support/webmaster/error-dictionary/http-codes.html';
-
         console.log('Код ошибки:', err); // выведем ошибку в консоль
-        console.log(`Проверьте причину в справочнике по адресу: ${linkError}`)
+        console.log(`Проверьте причину в справочнике по адресу: ${directoryHTTP}`)
       })
   },[currentUser])
 
@@ -79,10 +77,8 @@ function App() {
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
       })
       .catch((err) => {
-        const linkError = 'https://yandex.ru/support/webmaster/error-dictionary/http-codes.html';
-
         console.log('Код ошибки:', err); // выведем ошибку в консоль
-        console.log(`Проверьте причину в справочнике по адресу: ${linkError}`)
+        console.log(`Проверьте причину в справочнике по адресу: ${directoryHTTP}`)
       });
   }
 
@@ -92,10 +88,8 @@ function App() {
         setCards((state) => state.filter((c) => c._id !== card._id ? c : ''));
       })
       .catch((err) => {
-        const linkError = 'https://yandex.ru/support/webmaster/error-dictionary/http-codes.html';
-
         console.log('Код ошибки:', err); // выведем ошибку в консоль
-        console.log(`Проверьте причину в справочнике по адресу: ${linkError}`)
+        console.log(`Проверьте причину в справочнике по адресу: ${directoryHTTP}`)
       });
   }
 
@@ -124,9 +118,8 @@ function App() {
         closeAllPopups();
       })
       .catch((err) => {
-        const linkError = 'https://yandex.ru/support/webmaster/error-dictionary/http-codes.html';
         console.log('Код ошибки:', err); // выведем ошибку в консоль
-        console.log(`Проверьте причину в справочнике по адресу: ${linkError}`)
+        console.log(`Проверьте причину в справочнике по адресу: ${directoryHTTP}`)
       })
   }
 
@@ -138,9 +131,8 @@ function App() {
         closeAllPopups();
       })
       .catch((err) => {
-      const linkError = 'https://yandex.ru/support/webmaster/error-dictionary/http-codes.html';
       console.log('Код ошибки:', err); // выведем ошибку в консоль
-      console.log(`Проверьте причину в справочнике по адресу: ${linkError}`)
+      console.log(`Проверьте причину в справочнике по адресу: ${directoryHTTP}`)
     })
   }
 
@@ -152,9 +144,8 @@ function App() {
         closeAllPopups();
       })
       .catch((err) => {
-        const linkError = 'https://yandex.ru/support/webmaster/error-dictionary/http-codes.html';
         console.log('Код ошибки:', err); // выведем ошибку в консоль
-        console.log(`Проверьте причину в справочнике по адресу: ${linkError}`)
+        console.log(`Проверьте причину в справочнике по адресу: ${directoryHTTP}`)
       })
   }
 
@@ -194,9 +185,8 @@ function App() {
         history.push('/profile')
       })
       .catch((err) => {
-        const linkError = 'https://yandex.ru/support/webmaster/error-dictionary/http-codes.html';
         console.log('Код ошибки:', err);
-        console.log(`Справочник ошибок ${linkError}`)
+        console.log(`Справочник ошибок ${directoryHTTP}`)
         setEmailShow('');
       });
   }
@@ -213,10 +203,8 @@ function App() {
       .catch((err) => {
         setRegisterError(true);
 
-        const linkError = 'https://yandex.ru/support/webmaster/error-dictionary/http-codes.html';
-
         console.log('Код ошибки:', err);
-        console.log(`Справочник ошибок ${linkError}`)
+        console.log(`Справочник ошибок ${directoryHTTP}`)
       });
   }
 

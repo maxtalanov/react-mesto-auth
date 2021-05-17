@@ -52,3 +52,6 @@ export const statusEditProfile = document.querySelector('.profile__status');
 
 export const avatarProfile = document.querySelector('.profile__avatar');
 export const btnOpenPopupAvatar = document.querySelector('.profile__img-box');
+
+//#NEW
+export const directoryHTTP = 'https://yandex.ru/support/webmaster/error-dictionary/http-codes.html';
