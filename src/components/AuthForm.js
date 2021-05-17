@@ -1,7 +1,7 @@
 import React from 'react';
 
 //Компонент ф-ый
-function AuthForm ({ title, submitName, typeEmail, typePassword, onChange, authData, submit }) {
+function AuthForm ({ title, submitName, onChange, authData, submit }) {
 
 
   return(
@@ -9,11 +9,11 @@ function AuthForm ({ title, submitName, typeEmail, typePassword, onChange, authD
       <h2 className="form-auth__title">{ title }</h2>
 
       <fieldset className="form-auth__set">
-        <input className="form-auth__input" id={typeEmail} type={typeEmail} name={typeEmail} value={authData.email} onChange={onChange}
+        <input className="form-auth__input" id="email" type="email" name="email" value={authData.email} onChange={onChange}
         placeholder="Email" autoComplete="off" required/>
         {/*<span className="form-auth__error-span" id="profile-name-error" />*/}
 
-        <input className="form-auth__input" id={typePassword} type={typePassword} name={typePassword} value={authData.password} onChange={onChange}
+        <input className="form-auth__input" id="password" type="password" name="password" value={authData.password} onChange={onChange}
         placeholder="Пароль" minLength="6" maxLength="28" autoComplete="off" required />
         {/*<span className="form-auth__error-span" id="profile-status-error" />*/}
       </fieldset>

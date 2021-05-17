@@ -37,8 +37,6 @@ function Register({ onRegister }) {
       <AuthForm
         title="Регистрация"
         submitName="Зарегистрироваться"
-        typeEmail="email"
-        typePassword="password"
         onChange={handleChange}
         authData={authData}
         submit={handleSubmit}

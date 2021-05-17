@@ -37,8 +37,6 @@ function Login({ onLogin }) {
       <AuthForm
         title="Войти"
         submitName="Войти"
-        typeEmail="email"
-        typePassword="password"
         onChange={handleChange}
         authData={authData}
         submit={handleSubmit}
