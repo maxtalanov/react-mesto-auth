@@ -4,7 +4,7 @@ function InfoTooltip({ src, title, isOpen,onClose }) {
   const classOpen = isOpen ? 'popup_opened' : '';
 
   return(
-    <section className={`popup popup_type_infoRegister ${classOpen}`}>
+    <section className={`popup popup_type_tooltip ${classOpen}`}>
       <form className="form">
         <img className="form__result-icon" src={src} alt="Тест"/>
         <h2 className="form__result-title">{title}</h2>
