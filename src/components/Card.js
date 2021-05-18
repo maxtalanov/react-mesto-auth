@@ -16,7 +16,7 @@ function Card({ onClickCard, onCardLike, onCardDelete, ownerId, _id, likes, src,
     onClickCard({ src, title, alt });
   }
   function clickLike() {
-    onCardLike({ likes });
+    onCardLike({ _id, likes });
   }
   function removeCard() {
     onCardDelete({ _id });

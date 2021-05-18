@@ -54,7 +54,7 @@ function App() {
         console.log('Код ошибки:', err); // выведем ошибку в консоль
         console.log(`Проверьте причину в справочнике по адресу: ${directoryHTTP}`)
       })
-  },[currentUser])
+  },[])
 
   function closeAllPopups() {
     setIsEditAvatarPopupOpen(false);
@@ -66,7 +66,8 @@ function App() {
   }
 
   function handleCardLike(card) {
-    // console.log(card, 'handleCardLike')
+    console.log(card, 'handleCardLike')
+
     // Снова проверяем, есть ли уже лайк на этой карточке
     const isLiked = card.likes.some(i => i._id === currentUser._id);
 

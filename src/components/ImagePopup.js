@@ -4,7 +4,7 @@ import React from 'react';
 function ImagePopup({ onClose, card}) {
 
   const classOpen = card?.title? 'popup_opened' : '';
-  console.log(card, classOpen)
+
   return (
     <section className={`popup popup_type_img ${classOpen}`}>
       <figure className="show-img">
