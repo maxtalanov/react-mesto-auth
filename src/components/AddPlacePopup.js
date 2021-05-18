@@ -27,7 +27,7 @@ function AddPlacePopup(props) {
 
   return(
     <PopupWithForm name="card" title="Новое место" isOpen={props.isOpen} onClose={props.onClose}
-    inputBtnSelector="create" inpitValue="Создать" onSubmit={handleSubmit}>
+    inputBtnSelector="create" submitValue="Создать" onSubmit={handleSubmit}>
 
       <fieldset className="form__set">
         <input className="form__input form__in-name" id="card-name" type="text" name="name" placeholder="Название"

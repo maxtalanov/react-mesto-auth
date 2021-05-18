@@ -18,7 +18,7 @@ function EditAvatarPopup(props) {
 
   return(
     <PopupWithForm name="avatar" title="Обновить аватар" isOpen={props.isOpen} onClose={props.onClose} onSubmit={handleSubmit}
-    inputBtnSelector="save" inpitValue="Сохранить">
+    inputBtnSelector="save" submitValue="Сохранить">
 
       <fieldset className="form__set">
         <input className="form__input form__in-link" id="avatar-link" type="url" name="avatar"
