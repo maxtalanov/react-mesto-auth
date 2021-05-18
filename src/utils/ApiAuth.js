@@ -1,4 +1,4 @@
-const onError = res => res.ok  ? res.json() : Promise.reject(`Ошибка: ${res.status} - ${res.statusText}.`);
+const checkResponse = res => res.ok  ? res.json() : Promise.reject(`Ошибка: ${res.status} - ${res.statusText}.`);
 const headers = {
   'Accept': 'application/json',
   'Content-Type': 'application/json',
@@ -14,7 +14,7 @@ export const register = ({email, password}) => {
     method: "POST",
     headers,
     body: JSON.stringify({email, password})
-  }).then(onError)
+  }).then(checkResponse)
 }
 
   // 2. Авторизация пользователя.
@@ -24,7 +24,7 @@ export const authorize = ({email, password}) => {
     method: "POST",
     headers,
     body: JSON.stringify({ email, password })
-  }).then(onError)
+  }).then(checkResponse)
 }
 
   // 3. Проверка токена.
@@ -36,5 +36,5 @@ export const getContent = (jwt) => {
       ...headers,
       'Authorization': `Bearer ${jwt}`
     }
-  }).then(onError)
+  }).then(checkResponse)
 }
